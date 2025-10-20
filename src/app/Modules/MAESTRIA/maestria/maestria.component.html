@@ -1,0 +1,108 @@
+<div class="container py-5">
+    <div class="row">
+      <!-- Columna izquierda: Información general y recursos -->
+      <div class="col-md-8">
+        <!-- SECCIÓN 1: Información general -->
+        <div class="mb-5">
+          <h2 class="mb-4">UdO</h2>
+          <h4 class="text-muted">Cid Consultores en colaboración con la Universidad de Occidente presentan:</h4>
+          <h3 class="text-primary">Maestría en Administración</h3>
+          <hr>
+          <h4>Programa del posgrado</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <a [routerLink]="'/chat-proxima-sesion'">Sesiones de chat: Próxima sesión</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/material/administracion-i'">Material por módulo: Administración I</a>
+            </li>
+          </ul>
+  
+          <h4>Agenda de actividades</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/capitulo-intro-administracion'">Capítulo I: Introducción a la administración</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/entorno-economico'">Entorno económico</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- SECCIÓN 2: Recursos, lecturas y chat -->
+        <div>
+          <h4>Plan de asignatura y lecturas</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/economia-concepto'">El concepto de economía</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/economia-como-ciencia'">La economía como ciencia social</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/sazon-mexico'">Lectura: "Con la sazón de México"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/mexico-y-la-salud'">Lectura: "México y la salud"</a>
+            </li>
+          </ul>
+  
+          <h4>Salud ambiental</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/salud-ambiental-agenda'">Agenda de actividades</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/temas-asignatura'">Temas de la asignatura</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/ecologia'">Lectura: "Estudios ecológicos"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/etica-ambiente'">Lectura: "Ética y medio ambiente"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/salud-ocupacional'">Lectura: "Salud ambiental y ocupacional"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/lecturas/poblacion-ambiente'">Lectura: "Población, ambiente, territorio"</a>
+            </li>
+          </ul>
+  
+          <h4>Entorno económico II</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <a [routerLink]="'/contenido/plan-asignatura-econ2'">Plan de asignatura</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/ligas-interes/turismo-medico'">"Destacan importancia de Jalisco como destino de turismo médico"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/ligas-interes/inflacion'">"Inflación no se detiene, se dispara hasta 6.17%"</a>
+            </li>
+            <li class="list-group-item">
+              <a [routerLink]="'/ligas-interes/empleo'">"Más empleo en México, pero más precario"</a>
+            </li>
+          </ul>
+  
+          <h4>Envío de trabajos</h4>
+          <p>
+            Correo: <a href="mailto:tareas.maestria@cidconsultores.org">tareas.maestriacidconsultores.org</a>
+          </p>
+  
+          <a class="btn btn-primary mb-3" [routerLink]="'/chat/sala'">Ir a CHAT sala de CHAT</a>
+        </div>
+      </div>
+  
+      <!-- Columna derecha: Historial del chat -->
+      <div class="col-md-4">
+        <h5>Historial de CHAT</h5>
+        <ul class="list-group">
+          <li *ngFor="let fecha of historialChat" class="list-group-item">
+            <a [routerLink]="getChatHistorialLink(fecha)">{{ fecha }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,30 @@
+<div class="container my-4">
+    <h2 class="mb-3">Diplomado: Administración de servicios de salud con calidad</h2>
+  
+    <div class="mb-3">
+      <p><strong>Modalidad:</strong> A distancia en línea</p>
+      <p><strong>Carga horaria:</strong> 160 horas en conexión y 260 horas acreditables</p>
+      <p><strong>Fecha:</strong> 01 de enero al 31 de diciembre de 2017</p>
+      <p><strong>Envío de trabajos:</strong> <a href="mailto:tareas.diplomado@cidconsultores.org">tareas.diplomadocidconsultores.org</a></p>
+    </div>
+  
+    <div *ngFor="let unidad of unidades" class="card mb-3">
+      <div class="card-header fw-bold bg-light">{{ unidad.titulo }}</div>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let tema of unidad.temas" class="list-group-item">
+          <a [routerLink]="tema.link" class="text-decoration-none">{{ tema.nombre }}</a>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="mt-4">
+      <h5>SALA de CHAT</h5>
+      <ul class="list-group">
+        <li *ngFor="let sesion of sesiones" class="list-group-item">
+          <a [routerLink]="sesion.link" class="text-decoration-none">{{ sesion.nombre }}</a>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+  

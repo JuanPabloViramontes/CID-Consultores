@@ -1,3 +1,35 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './Modules/PRINCIPAL/home/home.component';
+import { ColaboracionesComponent } from './Modules/COLABORACIONES/colaboraciones/colaboraciones.component';
+import { MaestriaComponent } from './Modules/MAESTRIA/maestria/maestria.component';
+import { DiplomadoComponent } from './Modules/DIPLOMADO/diplomado/diplomado.component';
+import { QuienesSomosComponent } from './Modules/QUIENES-SOMOS/quienes-somos/quienes-somos.component';
+import { MapComponent } from './Modules/POSTALES_SONORAS/map/map.component';
+import { ServicesComponent } from './Modules/SERVICIOS/services/services.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'servicios',
+    component: ServicesComponent,
+  },
+  {
+    path: 'quienes-somos',
+    component: QuienesSomosComponent,
+  },
+  {
+    path: 'maestria-informacion',
+    component: MaestriaComponent,
+  },
+  {
+    path: 'diplomado-informacion',
+    component: DiplomadoComponent,
+  },
+    {
+    path: 'postales-sonoras',
+    component: MapComponent
+  },
+];
