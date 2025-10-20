@@ -1,94 +1,54 @@
 <section class="py-5 servicios-section">
   <div class="container">
     <h2 class="mb-5 text-center display-4 fw-bold">Nuestros <span class="text-warning">Servicios</span></h2>
-    
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <!-- Tarjeta 1 -->
-      <div class="col">
+      <div class="col" *ngFor="let servicio of servicios">
         <div class="card h-100 servicio-card">
           <div class="card-body text-center p-4">
             <div class="icono-servicio mb-4">
-              <i class="bi bi-building-gear text-warning"></i>
+              <i [class]="'bi ' + servicio.icono + ' text-warning'"></i>
             </div>
-            <h3 class="card-title h4">Administración y Planeación</h3>
-            <p class="card-text text-muted">Diseño y ejecución de estrategias administrativas y de planificación territorial con enfoque sostenible.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 2 -->
-      <div class="col">
-        <div class="card h-100 servicio-card">
-          <div class="card-body text-center p-4">
-            <div class="icono-servicio mb-4">
-              <i class="bi bi-book-half text-warning"></i>
-            </div>
-            <h3 class="card-title h4">Educación y Capacitación</h3>
-            <p class="card-text text-muted">Desarrollo de programas formativos y diplomados en gestión ambiental, servicios de salud y más.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 3 -->
-      <div class="col">
-        <div class="card h-100 servicio-card">
-          <div class="card-body text-center p-4">
-            <div class="icono-servicio mb-4">
-              <i class="bi bi-tree text-warning"></i>
-            </div>
-            <h3 class="card-title h4">Recursos Naturales</h3>
-            <p class="card-text text-muted">Conservación, evaluación y aprovechamiento sostenible de recursos naturales en distintas regiones.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 4 -->
-      <div class="col">
-        <div class="card h-100 servicio-card">
-          <div class="card-body text-center p-4">
-            <div class="icono-servicio mb-4">
-              <i class="bi bi-globe-americas text-warning"></i>
-            </div>
-            <h3 class="card-title h4">Sistemas de Información Geográfica</h3>
-            <p class="card-text text-muted">Diseño e implementación de SIG para análisis territorial, planificación y visualización de datos.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 5 -->
-      <div class="col">
-        <div class="card h-100 servicio-card">
-          <div class="card-body text-center p-4">
-            <div class="icono-servicio mb-4">
-              <i class="bi bi-graph-up-arrow text-warning"></i>
-            </div>
-            <h3 class="card-title h4">Desarrollo Productivo</h3>
-            <p class="card-text text-muted">Impulso a iniciativas locales con enfoque en productividad, sostenibilidad y economía social.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tarjeta 6 (opcional: espacio para agregar otro servicio) -->
-      <div class="col">
-        <div class="card h-100 servicio-card">
-          <div class="card-body text-center p-4">
-            <div class="icono-servicio mb-4">
-              <i class="bi bi-people-fill text-warning"></i>
-            </div>
-            <h3 class="card-title h4">Consultoría Especializada</h3>
-            <p class="card-text text-muted">Soluciones personalizadas para necesidades específicas de su organización.</p>
-            <a href="#" class="btn btn-warning mt-3">Más información</a>
+            <h3 class="card-title h4">{{ servicio.titulo }}</h3>
+            <p class="card-text text-muted">{{ servicio.descripcionCorta }}</p>
+            <button class="btn btn-warning mt-3" (click)="abrirModal(servicio)">Más información</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="modal fade" [class.show]="servicioSeleccionado" [style.display]="servicioSeleccionado ? 'block' : 'none'" tabindex="-1" (click)="cerrarModal()">
+  <div class="modal-dialog modal-dialog-centered modal-lg" (click)="$event.stopPropagation()">
+    <div class="modal-content" *ngIf="servicioSeleccionado">
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">
+          <i [class]="'bi ' + servicioSeleccionado.icono + ' text-warning me-2'"></i>
+          {{ servicioSeleccionado.titulo }}
+        </h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <p class="lead">{{ servicioSeleccionado.descripcionDetallada }}</p>
+        <hr>
+        <h6 class="fw-bold mb-3">Incluye:</h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let item of servicioSeleccionado.items">
+            <i class="bi bi-check-circle-fill text-success me-2"></i>
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+        <a href="/servicios" class="btn btn-warning">Ver todos los servicios</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop fade" [class.show]="servicioSeleccionado" *ngIf="servicioSeleccionado"></div>
 
 <style>
   .servicios-section {
@@ -103,6 +63,7 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background-color: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    cursor: pointer;
   }
 
   .servicio-card:hover {
@@ -123,13 +84,38 @@
   .btn-warning {
     background-color: #c5a100;
     border-color: #c5a100;
-    color: #001a33;
+    color: white;
     font-weight: 500;
   }
 
   .btn-warning:hover {
     background-color: #b39300;
     border-color: #b39300;
+  }
+
+  .modal.show {
+    display: block !important;
+  }
+
+  .modal-backdrop.show {
+    opacity: 0.5;
+  }
+
+  .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+
+  .modal-header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .list-group-item {
+    border: none;
+    padding: 0.75rem 0;
   }
 </style>
 

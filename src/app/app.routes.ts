@@ -6,8 +6,14 @@ import { DiplomadoComponent } from './Modules/DIPLOMADO/diplomado/diplomado.comp
 import { QuienesSomosComponent } from './Modules/QUIENES-SOMOS/quienes-somos/quienes-somos.component';
 import { MapComponent } from './Modules/POSTALES_SONORAS/map/map.component';
 import { ServicesComponent } from './Modules/SERVICIOS/services/services.component';
+import { ContactoComponent } from './Modules/CONTACTO/contacto.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -32,4 +38,12 @@ export const routes: Routes = [
     path: 'postales-sonoras',
     component: MapComponent
   },
+  {
+    path: 'contacto',
+    component: ContactoComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
+  }
 ];
