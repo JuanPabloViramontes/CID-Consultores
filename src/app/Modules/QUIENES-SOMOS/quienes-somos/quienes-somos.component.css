@@ -1,9 +1,285 @@
-.carousel img {
-    max-height: 300px; /* Puedes ajustar esta altura */
-    object-fit: cover; /* Mantiene proporción y recorta si es necesario */
-    width: auto;
-height: auto;
-max-width: 100%;
+.quienes-somos-section {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
 
+.hero-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+}
+
+.badge-custom {
+  background: rgba(197, 161, 0, 0.2);
+  color: #c5a100;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.hero-content h1 {
+  color: white;
+}
+
+.hero-content .lead {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.image-carousel {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-image {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.carousel-indicators button {
+  background-color: #c5a100;
+}
+
+.areas-section {
+  background: white;
+}
+
+.area-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid #f8f9fa;
+  height: 100%;
+}
+
+.area-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  border-color: #c5a100;
+}
+
+.area-icon {
+  background: linear-gradient(135deg, #c5a100 0%, #b39300 100%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.3s ease;
+}
+
+.area-card:hover .area-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.area-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.area-card h5 {
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.area-card p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.vision-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.vision-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.vision-icon-container i {
+  font-size: 15rem;
+  color: #c5a100;
+  opacity: 0.2;
+}
+
+.badge-vision {
+  background: linear-gradient(135deg, #c5a100 0%, #b39300 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.vision-content h2 {
+  color: #2c3e50;
+}
+
+.vision-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.vision-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.vision-icon-small {
+  flex-shrink: 0;
+}
+
+.vision-icon-small i {
+  font-size: 2.5rem;
+  color: #c5a100;
+}
+
+.vision-text h5 {
+  color: #2c3e50;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.vision-text p {
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.valores-section {
+  background: white;
+}
+
+.valor-card {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 15px;
+  padding: 40px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.valor-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.valor-card i {
+  font-size: 3rem;
+  color: #c5a100;
+  margin-bottom: 15px;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.valor-card:hover i {
+  transform: scale(1.2);
+  color: white;
+}
+
+.valor-card h5 {
+  color: white;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #c5a100 0%, #b39300 100%);
+}
+
+.cta-box {
+  padding: 40px;
+  color: white;
+}
+
+.cta-box h3 {
+  color: white;
+}
+
+.cta-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.cta-box .btn-light {
+  background: white;
+  color: #c5a100;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.cta-box .btn-light:hover {
+  background: #2c3e50;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 60px 0;
   }
-  
+
+  .carousel-image {
+    height: 300px;
+  }
+
+  .vision-icon-container i {
+    font-size: 8rem;
+  }
+
+  .cta-box {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .carousel-image {
+    height: 250px;
+  }
+
+  .area-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .area-icon i {
+    font-size: 1.5rem;
+  }
+
+  .vision-icon-container {
+    display: none;
+  }
+
+  .valor-card i {
+    font-size: 2rem;
+  }
+}

@@ -7,6 +7,7 @@ import { QuienesSomosComponent } from './Modules/QUIENES-SOMOS/quienes-somos/qui
 import { MapComponent } from './Modules/POSTALES_SONORAS/map/map.component';
 import { ServicesComponent } from './Modules/SERVICIOS/services/services.component';
 import { ContactoComponent } from './Modules/CONTACTO/contacto.component';
+import { ProyectosComponent } from './Modules/PROYECTOS/proyectos.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
   {
     path: 'contacto',
     component: ContactoComponent
+  },
+  {
+    path: 'proyectos',
+    component: ProyectosComponent
   },
   {
     path: '**',

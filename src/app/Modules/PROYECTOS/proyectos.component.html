@@ -1,0 +1,91 @@
+<section class="proyectos-section py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-dark mb-3">Nuestros Proyectos</h1>
+      <p class="lead text-muted">Conoce nuestra trayectoria en desarrollo sostenible y gestión ambiental</p>
+    </div>
+
+    <div class="categoria-tabs mb-5">
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2" *ngFor="let categoria of categorias">
+          <button
+            class="categoria-btn w-100"
+            [class.active]="categoriaSeleccionada === categoria.id"
+            (click)="seleccionarCategoria(categoria.id)">
+            <i [class]="'bi ' + categoria.icono"></i>
+            <span>{{ categoria.nombre }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proyectos-counter mb-4">
+      <span class="badge bg-warning text-dark">
+        <i class="bi bi-folder-fill me-2"></i>
+        {{ proyectosFiltrados.length }} proyectos encontrados
+      </span>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let proyecto of proyectosFiltrados">
+        <div class="proyecto-card" (click)="abrirDetalle(proyecto)">
+          <div class="proyecto-card-header">
+            <i [class]="'bi ' + getIconoCategoria(proyecto.categoria) + ' categoria-icon'"></i>
+            <span class="categoria-badge">{{ getNombreCategoria(proyecto.categoria) }}</span>
+          </div>
+          <div class="proyecto-card-body">
+            <h5 class="proyecto-titulo">{{ proyecto.titulo }}</h5>
+            <p class="proyecto-descripcion">{{ proyecto.descripcion }}</p>
+          </div>
+          <div class="proyecto-card-footer">
+            <span class="ver-mas">Ver detalles <i class="bi bi-arrow-right ms-2"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-proyectos text-center py-5" *ngIf="proyectosFiltrados.length === 0">
+      <i class="bi bi-folder-x display-1 text-muted"></i>
+      <h4 class="mt-3 text-muted">No hay proyectos en esta categoría</h4>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" *ngIf="proyectoSeleccionado" (click)="cerrarDetalle()">
+  <div class="modal-content-custom" (click)="$event.stopPropagation()">
+    <button class="btn-close-modal" (click)="cerrarDetalle()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="modal-header-custom">
+      <i [class]="'bi ' + getIconoCategoria(proyectoSeleccionado.categoria) + ' modal-icon'"></i>
+      <h3 class="modal-title">{{ proyectoSeleccionado.titulo }}</h3>
+      <span class="modal-categoria-badge">{{ getNombreCategoria(proyectoSeleccionado.categoria) }}</span>
+    </div>
+    <div class="modal-body-custom">
+      <div class="descripcion-completa">
+        <h5 class="mb-3"><i class="bi bi-file-text me-2"></i>Descripción del Proyecto</h5>
+        <p>{{ proyectoSeleccionado.descripcion }}</p>
+      </div>
+      <div class="proyecto-info mt-4">
+        <div class="info-item">
+          <i class="bi bi-tag-fill"></i>
+          <div>
+            <strong>Categoría</strong>
+            <p>{{ getNombreCategoria(proyectoSeleccionado.categoria) }}</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="bi bi-check-circle-fill"></i>
+          <div>
+            <strong>Estado</strong>
+            <p>Completado</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer-custom">
+      <button class="btn btn-outline-secondary" (click)="cerrarDetalle()">Cerrar</button>
+      <a href="/contacto" class="btn btn-warning">Solicitar información</a>
+    </div>
+  </div>
+</div>
