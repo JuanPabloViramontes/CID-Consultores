@@ -9,6 +9,7 @@ interface Area {
 interface Valor {
   titulo: string;
   icono: string;
+  descripcion: string;
 }
 
 @Component({
@@ -62,13 +63,45 @@ export class QuienesSomosComponent {
   ];
 
   valores: Valor[] = [
-    { titulo: 'Profesionalismo', icono: 'bi-award' },
-    { titulo: 'Sustentabilidad', icono: 'bi-recycle' },
-    { titulo: 'Innovación', icono: 'bi-lightbulb' },
-    { titulo: 'Compromiso Social', icono: 'bi-heart' },
-    { titulo: 'Integridad', icono: 'bi-shield-fill-check' },
-    { titulo: 'Calidad', icono: 'bi-star-fill' },
-    { titulo: 'Colaboración', icono: 'bi-people' },
-    { titulo: 'Excelencia', icono: 'bi-trophy' }
+    {
+      titulo: 'Profesionalismo',
+      icono: 'bi-award',
+      descripcion: 'Actuamos con ética y competencia técnica en cada proyecto que realizamos'
+    },
+    {
+      titulo: 'Sustentabilidad',
+      icono: 'bi-recycle',
+      descripcion: 'Promovemos el equilibrio entre desarrollo económico y preservación ambiental'
+    },
+    {
+      titulo: 'Innovación',
+      icono: 'bi-lightbulb',
+      descripcion: 'Implementamos soluciones creativas y tecnología de vanguardia'
+    },
+    {
+      titulo: 'Compromiso Social',
+      icono: 'bi-heart',
+      descripcion: 'Trabajamos por el mejoramiento de las condiciones de vida de las comunidades'
+    },
+    {
+      titulo: 'Integridad',
+      icono: 'bi-shield-fill-check',
+      descripcion: 'Transparencia y honestidad en todas nuestras acciones y relaciones'
+    },
+    {
+      titulo: 'Calidad',
+      icono: 'bi-star-fill',
+      descripcion: 'Excelencia en nuestros servicios y cumplimiento de estándares más altos'
+    },
+    {
+      titulo: 'Colaboración',
+      icono: 'bi-people',
+      descripcion: 'Fomentamos el trabajo en equipo y la participación de todos los actores'
+    },
+    {
+      titulo: 'Excelencia',
+      icono: 'bi-trophy',
+      descripcion: 'Superamos expectativas con resultados sobresalientes y medibles'
+    }
   ];
 }

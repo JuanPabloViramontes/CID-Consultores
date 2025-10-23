@@ -202,6 +202,13 @@
 .valor-card h5 {
   color: white;
   font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.valor-card p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.5;
   margin: 0;
 }
 
