@@ -1,200 +1,160 @@
-<style>
-  .bg-verde {
-    background-color: #2c3e50;
-    color: white;
-  }
+<section class="hero-home">
+  <div class="hero-overlay"></div>
+  <div class="container-fluid h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-6 hero-content">
+        <div class="logo-container mb-4">
+          <img src="assets/images/CID-Consultores.svg" alt="Logo CID" class="logo-cid" />
+        </div>
+        <h1 class="hero-title mb-4">CID Consultores</h1>
+        <p class="hero-subtitle mb-4">Consultoría integral en desarrollo ambiental, social y productivo</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary-custom">
+            <i class="bi bi-folder-fill me-2"></i>
+            Conoce nuestros servicios
+          </a>
+          <a href="/contacto" class="btn btn-outline-custom">
+            <i class="bi bi-envelope-fill me-2"></i>
+            Contáctanos
+          </a>
+        </div>
 
-  .img-pequena {
-  max-width: 600px;  /* o el tamaño que veas más adecuado */
-  max-height: 350px; /* evita que sea tan alta */
-  width: 100%;        /* mantiene la responsividad */
-  height: auto;
-  object-fit: cover;  /* opcional, mantiene proporciones agradables */
-}
+        <div class="hero-stats mt-5">
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Proyectos realizados</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Clientes satisfechos</div>
+          </div>
+        </div>
+      </div>
 
-  .header-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 220px; /* altura controlada */
-    padding: 20px 30px;
-    position: relative;
-  }
+      <div class="col-lg-6">
+        <div class="colaboraciones-section">
+          <h3 class="colaboraciones-title">Nuestras Colaboraciones</h3>
+          <div class="colaboraciones-grid">
+            <a [routerLink]="['/maestria-informacion']" class="colaboracion-card-modern">
+              <div class="colaboracion-image-wrapper">
+                <img src="assets/images/UniversidadOEI.png" alt="Maestría Universidad de Occidente" />
+              </div>
+              <div class="colaboracion-info">
+                <h5>Maestría en Educación Integral</h5>
+                <p>Universidad de Occidente</p>
+              </div>
+              <div class="colaboracion-arrow">
+                <i class="bi bi-arrow-right"></i>
+              </div>
+            </a>
 
-  .logo-cid {
-    max-height: 200px;
-    width: auto;
-    filter: brightness(0) invert(1);
-  }
-
-  .main-content {
-    text-align: center;
-    flex: 1;
-    padding: 0 20px;
-  }
-
-  .main-content h1 {
-    font-size: 3.0rem;
-    margin-bottom: 8px;
-  }
-
-  .main-content p.lead {
-    font-size: 1.7rem;
-    color: #c5a100;
-    margin-bottom: 12px;
-  }
-
-  .btn-dorado {
-    background-color: #c5a100;
-    color: white;
-    border: none;
-    font-weight: 700;
-    padding: 15px 24px; 
-    font-size: 0.9rem;
-    border-radius: 10px;
-  }
-
-  .btn-dorado:hover {
-    background-color: #b29500;
-  }
-
-  .colaboraciones-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-end;
-  }
-
-  .colaboracion-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    padding: 10px;
-    width: 180px;
-    text-align: center;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .colaboracion-img {
-  max-height: 40px; /* Antes estaba en 50px u 80px */
-  max-width: 100px;  /* Antes era 120px o más */
-  margin-bottom: 6px; /* Ajuste fino */
-  object-fit: contain;
-}
-
-
-  .colaboracion-text {
-    color: #2c3e50;
-    font-size: 0.8rem;
-    margin: 0;
-  }
-
-  @media (max-width: 992px) {
-    .header-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .logo-cid {
-      margin-bottom: 15px;
-    }
-
-    .colaboraciones-container {
-      flex-direction: row;
-      justify-content: center;
-      margin-top: 15px;
-    }
-
-    .colaboracion-card {
-      width: 150px;
-    }
-  }
-  .section-title {
-  margin-bottom: 2rem; /* Puedes ajustar este valor (ej. 2rem, 3rem, 40px) */
-}
-.proyecto-card {
-  background-color: white;
-  border-radius: 0.5rem;       /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  padding: 1.5rem;             /* Espaciado interno */
-  margin-bottom: 2rem;         /* Separación entre cards */
-}
-</style>
-
-<section class="bg-verde">
-  <div class="container-fluid header-container">
-    <img src="assets/images/CID-Consultores.svg" alt="Logo CID" class="logo-cid" />
-
-    <div class="main-content">
-      <h1 class="fw-bold">CID Consultores</h1>
-      <p class="lead">Consultoría integral en desarrollo ambiental, social y productivo</p>
-      <a href="#projects" class="btn btn-dorado">Conoce nuestros servicios</a>
-    </div>
-
-    <div class="colaboraciones-container d-flex flex-wrap justify-content-center gap-4 mt-4">
-      <a [routerLink]="['/maestria-informacion']" class="colaboracion-card text-decoration-none text-dark">
-        <img src="assets/images/UniversidadOEI.png" alt="Maestría Universidad de Occidente" class="colaboracion-img" />
-        <p class="colaboracion-text text-center">Maestría en Educación Integral</p>
-      </a>
-
-      <a [routerLink]="['/diplomado-informacion']" class="colaboracion-card text-decoration-none text-dark">
-        <img src="assets/images/diplomado-en-admi.png" alt="Diplomado" class="colaboracion-img d-block" />
-        <p class="colaboracion-text">Diplomado en Administración de Servicios y Calidad</p>
-      </a>
-      
-        
+            <a [routerLink]="['/diplomado-informacion']" class="colaboracion-card-modern">
+              <div class="colaboracion-image-wrapper">
+                <img src="assets/images/diplomado-en-admi.png" alt="Diplomado" />
+              </div>
+              <div class="colaboracion-info">
+                <h5>Diplomado en Administración</h5>
+                <p>Servicios de Salud con Calidad</p>
+              </div>
+              <div class="colaboracion-arrow">
+                <i class="bi bi-arrow-right"></i>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
+  <div class="scroll-indicator">
+    <a href="#projects">
+      <i class="bi bi-chevron-down"></i>
+    </a>
+  </div>
 </section>
 
-
-<!-- PROJECTS SECTION -->
-<section id="projects" class="py-5 bg-claro">
+<section id="projects" class="projects-section py-5">
   <div class="container">
-    <h2 class="text-center section-title">Proyectos destacados</h2>
+    <div class="section-header text-center mb-5">
+      <span class="section-badge">Nuestro Trabajo</span>
+      <h2 class="section-title-modern">Proyectos Destacados</h2>
+      <p class="section-subtitle">Conoce algunos de nuestros trabajos más representativos</p>
+    </div>
 
-    <div class="row mb-4 align-items-center proyecto-card">
-      <div class="col-md-6">
-        <h4>Levantamiento de usos de suelo</h4>
-        <p><strong>Cliente:</strong> Comisión de Planeación Urbana (COPLAUR)</p>
-        <p><strong>Periodo:</strong> 2007 - 2009</p>
-        <p><strong>Propósito:</strong> Levantamiento de usos de suelo del Ayuntamiento de Guadalajara.</p>
-        <p><strong>Productos:</strong> 150,000 fotografías y registros, proyecto en ArcMap con información geográfica vinculada a fotografías prediales.</p>
-        <p><strong>Fases:</strong> Campo, fotografía, base de datos, shape files, sistema de información geográfica.</p>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card-modern">
+          <div class="project-image">
+            <img src="assets/images/levantamiento.jpg" alt="Usos de suelo" />
+            <div class="project-overlay">
+              <span class="project-year">2007 - 2009</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4>Levantamiento de Usos de Suelo</h4>
+            <p class="project-client"><i class="bi bi-building me-2"></i>COPLAUR - Ayuntamiento de Guadalajara</p>
+            <p class="project-description">Levantamiento exhaustivo con 150,000 fotografías y registros georreferenciados en sistema de información geográfica.</p>
+            <div class="project-tags">
+              <span class="tag">SIG</span>
+              <span class="tag">Fotografía</span>
+              <span class="tag">Base de datos</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <img src="assets/images/levantamiento.jpg" alt="Usos de suelo" class="img-fluid img-shadow rounded img-pequena"> 
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card-modern">
+          <div class="project-image">
+            <img src="assets/images/desarrollo-com.jpg" alt="Desarrollo comunitario" />
+            <div class="project-overlay">
+              <span class="project-year">2009</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4>Plan de Desarrollo Comunitario</h4>
+            <p class="project-client"><i class="bi bi-building me-2"></i>SEPLAN - Gobierno de Jalisco</p>
+            <p class="project-description">Impulso de redes de desarrollo sustentable en zonas de alta marginación con participación comunitaria.</p>
+            <div class="project-tags">
+              <span class="tag">Desarrollo Social</span>
+              <span class="tag">Sustentabilidad</span>
+              <span class="tag">Comunidades</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card-modern">
+          <div class="project-image">
+            <img src="assets/images/CSNI.jpg" alt="Impacto PRO-SNI" />
+            <div class="project-overlay">
+              <span class="project-year">2009</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <h4>Estudio de Impacto PRO-SNI</h4>
+            <p class="project-client"><i class="bi bi-building me-2"></i>Universidad de Guadalajara</p>
+            <p class="project-description">Evaluación del impacto del PRO-SNI y SNCA mediante análisis estadístico y entrevistas especializadas.</p>
+            <div class="project-tags">
+              <span class="tag">Investigación</span>
+              <span class="tag">Análisis</span>
+              <span class="tag">Educación</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="row mb-4 align-items-center proyecto-card">
-      <div class="col-md-6 order-md-2">
-        <h4>Plan de desarrollo comunitario</h4>
-        <p><strong>Cliente:</strong> Secretaría de Planeación (SEPLAN)</p>
-        <p><strong>Periodo:</strong> 2009</p>
-        <p><strong>Propósito:</strong> Impulsar redes de desarrollo sustentable en zonas de alta marginación.</p>
-        <p><strong>Productos:</strong> 1 estudio, 4 programas, memorias de campo, sistema de información geográfica.</p>
-        <p><strong>Fases:</strong> Preselección, diagnóstico, plan de desarrollo, indicadores, aprobación comunitaria.</p>
-      </div>
-      <div class="col-md-6 order-md-1">
-        <img src="../../../../assets/images/desarrollo-com.jpg" alt="Desarrollo comunitario" class="img-fluid img-shadow rounded">
-      </div>
-    </div>
-
-    <div class="row align-items-center proyecto-card">
-      <div class="col-md-6">
-        <h4>Estudio de impacto PRO-SNI</h4>
-        <p><strong>Cliente:</strong> Universidad de Guadalajara</p>
-        <p><strong>Periodo:</strong> 2009</p>
-        <p><strong>Propósito:</strong> Evaluación del impacto del PRO-SNI y SNCA.</p>
-        <p><strong>Productos:</strong> Informes, reportes SPSS, mapeo de procedimientos, entrevistas.</p>
-        <p><strong>Fases:</strong> Campo, entrevistas, análisis estadístico, documentación.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="assets/images/CSNI.jpg" alt="Impacto PRO-SNI" class="img-fluid img-shadow rounded img-pequena">
-      </div>
+    <div class="text-center mt-5">
+      <a href="/proyectos" class="btn btn-view-all">
+        Ver todos los proyectos
+        <i class="bi bi-arrow-right ms-2"></i>
+      </a>
     </div>
   </div>
 </section>
