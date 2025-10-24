@@ -27,6 +27,10 @@ export const routes: Routes = [
     path: 'quienes-somos',
     component: QuienesSomosComponent,
   },
+    {
+    path: 'colaboraciones',
+    component: ColaboracionesComponent,
+  },
   {
     path: 'maestria-informacion',
     component: MaestriaComponent,
