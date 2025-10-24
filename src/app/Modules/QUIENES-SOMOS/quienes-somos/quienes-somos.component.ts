@@ -107,10 +107,5 @@ export class QuienesSomosComponent {
       icono: 'bi-people',
       descripcion: 'Fomentamos el trabajo en equipo y la participación de todos los actores'
     },
-    {
-      titulo: 'Excelencia',
-      icono: 'bi-trophy',
-      descripcion: 'Superamos expectativas con resultados sobresalientes y medibles'
-    }
   ];
 }

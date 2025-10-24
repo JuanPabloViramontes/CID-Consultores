@@ -1,229 +1,179 @@
-/* Animaciones personalizadas */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+:root {
+    --primary-color: #1e40af;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    --light-color: #f8fafc;
+    --dark-color: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
 }
 
-@keyframes slideUp {
-  from { 
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
+.postales-section {
+    background-color: #ffffff;
+    min-height: 100vh;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Mapa */
+.map-container {
+    background: var(--light-color);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
-@keyframes ripple {
-  0% {
-    transform: scale(0.8);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(2.4);
-    opacity: 0;
-  }
+.map-frame {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
-@keyframes wave {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-25%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.map-frame:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
 }
 
-/* Aplicar animaciones */
-.animate-fade-in {
-  animation: fadeIn 1.5s ease-out;
+/* Tarjetas de características */
+.feature-card {
+    background: var(--light-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.animate-slide-up {
-  animation: slideUp 1s ease-out;
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-/* Elemento de gota de agua */
-.water-drop {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  position: relative;
-  box-shadow: 
-    inset 0 0 20px rgba(255,255,255,0.3),
-    0 0 20px rgba(96, 165, 250, 0.5);
-  animation: float 4s ease-in-out infinite;
+.feature-card:hover::before {
+    transform: scaleX(1);
 }
 
-.water-drop::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  width: 10px;
-  height: 10px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  filter: blur(2px);
-}
-
-/* Efecto de ondas */
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 100%;
-  background-repeat: repeat-x;
-  background-position: 0 bottom;
-  transform-origin: center bottom;
-}
-
-.wave1 {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%233b82f6' opacity='0.1'%3E%3C/path%3E%3C/svg%3E");
-  animation: wave 25s linear infinite;
-}
-
-.wave2 {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%233b82f6' opacity='0.15'%3E%3C/path%3E%3C/svg%3E");
-  animation: wave 20s linear infinite;
-  animation-delay: -5s;
-}
-
-.wave3 {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' fill='%233b82f6' opacity='0.05'%3E%3C/path%3E%3C/svg%3E");
-  animation: wave 15s linear infinite;
-  animation-delay: -2s;
-}
-
-/* Efecto de ondulación para el indicador de carga */
-.water-ripple {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #3b82f6;
-  animation: ripple 1.5s linear infinite;
-}
-
-/* Cards con efecto hover mejorado */
-.card-hover {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-  transition: left 0.5s;
-}
-
-.card-hover:hover::before {
-  left: 100%;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
-  border-color: #3b82f6;
-}
-
-/* Iconos de las cards */
-.card-icon {
-  display: flex;
-  justify-content: center;
-}
-
-.icon-wrapper {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover .icon-wrapper {
-  transform: scale(1.1);
-  background: linear-gradient(135deg, #3b82f6, #60a5fa);
-  color: white;
-}
-
-/* Botones de control */
-.control-btn {
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-.control-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-}
-
-/* Controles del mapa */
-.map-control {
-  transition: all 0.3s ease;
-}
-
-.map-control:hover {
-  transform: scale(1.1);
-}
-
-/* Mejoras de responsividad */
-@media (max-width: 768px) {
-  .text-5xl {
+.feature-icon {
     font-size: 2.5rem;
-  }
-  
-  .text-xl {
-    font-size: 1.1rem;
-  }
-  
-  .grid-cols-3 {
-    grid-template-columns: 1fr;
-  }
-  
-  .water-drop {
-    width: 50px;
-    height: 50px;
-  }
+    transition: transform 0.3s ease;
 }
 
-/* Scroll personalizado */
-::-webkit-scrollbar {
-  width: 8px;
+.feature-card:hover .feature-icon {
+    transform: scale(1.1);
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(59, 130, 246, 0.1);
+/* Tarjetas de información */
+.info-card {
+    background: var(--light-color);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #3b82f6;
-  border-radius: 4px;
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+/* Botones */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Efectos de agua sutiles */
+.postales-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.postales-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(30, 64, 175, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Animaciones sutiles */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.feature-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+.feature-card:nth-child(2) .feature-icon {
+    animation-delay: 0.5s;
+}
+
+.feature-card:nth-child(3) .feature-icon {
+    animation-delay: 1s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .map-container {
+        padding: 1rem;
+    }
+    
+    .feature-card, .info-card {
+        margin-bottom: 1rem;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mejoras de tipografía */
+.display-4 {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* Efectos hover mejorados */
+.feature-card h3, .info-card h4 {
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover h3, .info-card:hover h4 {
+    color: var(--primary-color);
 }

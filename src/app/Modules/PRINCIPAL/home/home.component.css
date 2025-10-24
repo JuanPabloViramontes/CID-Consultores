@@ -490,4 +490,41 @@
   .project-image {
     height: 200px;
   }
+  
+}
+
+/* Banner de QGIS: franja ancha y baja en la parte superior */
+.hero-banner {
+  position: absolute; /* sitúa el banner en la parte superior de la sección */
+  top: 0;
+  left: 0;
+  width: 100vw; /* forzar ancho total de la ventana */
+  height: 170px;* altura baja tipo franja */
+  overflow: hidden;
+  z-index: 0; /* detrás del contenido principal (hero-content tiene z-index:1) */
+}
+.hero-banner-img {
+  width: 100vw;
+  height: 130%;
+  object-fit: cover;
+  object-position: center 30%; /* 🔼 Muestra más la parte superior */
+  filter: brightness(0.9);
+  display: block;
+}
+
+
+/* Empuja el contenido para que no quede encima del banner */
+.hero-home {
+  padding-top: 140px; /* deja espacio para la franja (ajustable) */
+}
+
+@media (max-width: 768px) {
+  .hero-banner { height: 90px; }
+  .hero-home { padding-top: 100px; }
+}
+
+@media (max-width: 576px) {
+  .hero-banner { height: 70px; }
+  .hero-home { padding-top: 80px; }
+  .hero-banner-img { object-position: center; }
 }

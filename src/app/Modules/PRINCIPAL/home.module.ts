@@ -6,6 +6,7 @@ import { MaestriaComponent } from '../MAESTRIA/maestria/maestria.component';
 import { RouterModule } from '@angular/router';
 import { DiplomadoComponent } from '../DIPLOMADO/diplomado/diplomado.component';
 import { MapComponent } from '../POSTALES_SONORAS/map/map.component';
+import { QuienesSomosComponent } from '../QUIENES-SOMOS/quienes-somos/quienes-somos.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { MapComponent } from '../POSTALES_SONORAS/map/map.component';
     HomeServiciosComponent,
     MaestriaComponent,
     DiplomadoComponent,
+    QuienesSomosComponent,
     MapComponent
   ],
   imports: [

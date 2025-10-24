@@ -1,8 +1,7 @@
-<nav class="navbar navbar-expand-lg border-bottom">
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
   <div class="container">
-    <!-- LOGO con routerLink al Home -->
-    <a class="navbar-brand" routerLink="/home">
-      <img src="../../../assets/images/LogoCID.png" alt="Logo CID" height="80" />
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <img src="../../../assets/images/LogoCID.png" alt="Logo CID" height="60" class="me-2" />
     </a>
 
     <button
@@ -18,17 +17,15 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
+      <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
         <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/quienes-somos">Quiénes somos</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/proyectos">Proyectos</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/servicios">Servicios</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/colaboraciones">Colaboraciones</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/postales-sonoras">Postales del agua</a></li>
+        <li class="nav-item"><a class="nav-link highlight-link" routerLink="/postales-sonoras">Postales del agua</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<div style="background-color: #2c3e50; height: 50px;"></div>
-
