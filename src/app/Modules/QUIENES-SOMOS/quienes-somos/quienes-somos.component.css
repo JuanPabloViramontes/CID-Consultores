@@ -92,10 +92,18 @@
   font-size: 1.1rem;
 }
 
-.area-card p {
+.area-card .area-descripcion {
+  color: #c5a100;
+  margin: 0 0 10px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.area-card .area-detalle {
   color: #6c757d;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.6;
 }
 
