@@ -1,0 +1,173 @@
+<div class="biofrecuencias-container py-5" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
+
+  <!-- Banner principal -->
+  <section class="biofrecuencias-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content">
+      <h1 class="banner-title">Biofrecuencias</h1>
+      <p class="banner-subtitle">
+        Biofrecuencias es un podcast en el cuál exploramos los entramados de la vida.  
+        En esta serie de capítulos, abordamos una pregunta difícil de responder con seguridad: ¿qué es la vida?.
+      </p>
+    </div>
+  </section>
+
+  <!-- Subtítulo de sección -->
+  <div class="section-subtitle text-center my-5">
+    <h2 class="fw-bold text-uppercase" style="letter-spacing: 1px; color: #2b2b2b;">Capítulo 1: Vida</h2>
+    <hr style="width: 80px; height: 3px; background-color: #198754; border: none; margin: 1rem auto;">
+  </div>
+https://www.youtube.com/watch?v=PKzf2v8YbwM&t=295s
+  <!-- CARDS SECTION -->
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <!-- Capítulo VIDA - Parte 1 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="800">
+        <div class="card service-card shadow-lg border-0 h-100 hover-card">
+          <img
+            src="https://img.youtube.com/vi/5LoISbTao2k/maxresdefault.jpg"
+            class="card-img-top"
+            alt="Capítulo Vida - Parte 1"
+          >
+          <div class="card-body text-center">
+            <div class="icon-container mb-3">
+              <i class="bi bi-soundwave fs-1 text-success"></i>
+            </div>
+            <h3 class="card-title fw-bold">Capítulo: Vida (Parte 1)</h3>
+            <p class="text-muted mt-2">
+              Una introducción a lo que se entiende como vida desde diferentes abordajes: científicos, artísticos y sociales.
+            </p>
+            <button class="btn btn-success mt-3 px-4" data-bs-toggle="modal" data-bs-target="#videoModal1">
+              Ver video
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capítulo VIDA - Parte 2 -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-duration="900">
+        <div class="card service-card shadow-lg border-0 h-100 hover-card">
+          <img
+            src="https://img.youtube.com/vi/kqZhlg12sDM/maxresdefault.jpg"
+            class="card-img-top"
+            alt="Capítulo Vida - Parte 2"
+          >
+          <div class="card-body text-center">
+            <div class="icon-container mb-3">
+              <i class="bi bi-broadcast-pin fs-1 text-primary"></i>
+            </div>
+            <h3 class="card-title fw-bold">Capítulo: Vida (Parte 2)</h3>
+            <p class="text-muted mt-2">
+              Profundiza en otras perspectivas sobre la vida y en el quehacer de quienes la estudian.
+            </p>
+            <button class="btn btn-success mt-3 px-4" data-bs-toggle="modal" data-bs-target="#videoModal2">
+              Ver video
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODALES -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="videoModal1" tabindex="-1" aria-labelledby="videoModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="videoModalLabel1">Capítulo: Vida (Parte 1)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/5LoISbTao2k"
+              title="Capítulo Vida - Parte 1"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="videoModal2" tabindex="-1" aria-labelledby="videoModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="videoModalLabel2">Capítulo: Vida (Parte 2)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.youtube.com/embed/kqZhlg12sDM"
+              title="Capítulo Vida - Parte 2"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Estilos personalizados -->
+<style>
+.biofrecuencias-banner {
+  background-image: url('/assets/images/bio.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.biofrecuencias-banner .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+.biofrecuencias-banner .banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.banner-subtitle {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container i {
+  transition: transform 0.3s ease;
+}
+
+.hover-card:hover .icon-container i {
+  transform: scale(1.15);
+}
+</style>

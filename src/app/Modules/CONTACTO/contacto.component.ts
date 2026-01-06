@@ -31,9 +31,7 @@ export class ContactoComponent {
   mensajeError = false;
 
   async enviarFormulario(): Promise<void> {
-    if (!this.validarFormulario()) {
-      return;
-    }
+    if (!this.validarFormulario()) return;
 
     this.enviando = true;
     this.mensajeExito = false;
@@ -43,13 +41,17 @@ export class ContactoComponent {
       const supabaseUrl = 'https://fhwckpjyisutwpbsdwqj.supabase.co';
       const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZod2NrcGp5aXN1dHdwYnNkd3FqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA5NzU1NTksImV4cCI6MjA3NjU1MTU1OX0.Imy_pYCRz_tzOb_YANUQa6p2u2X121EQ2Njjt2mmxRA';
 
+      // Enviar al endpoint de correo de CID Consultores
       const response = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${supabaseAnonKey}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(this.formData)
+        body: JSON.stringify({
+          ...this.formData,
+          destino: 'contacto@cidconsultores.org'
+        })
       });
 
       if (response.ok) {

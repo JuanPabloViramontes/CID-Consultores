@@ -1,0 +1,82 @@
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #198754;
+  border-bottom: 3px solid #198754;
+  padding-bottom: 5px;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+}
+
+.icon-container i {
+  transition: transform 0.3s ease;
+}
+
+.icon-container i:hover {
+  transform: scale(1.1);
+}
+
+.btn-success {
+  border-radius: 2rem;
+}
+
+.modal-content {
+  border-radius: 1rem;
+}
+
+/* 🔹 Efecto hover elegante */
+.hover-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  border: 1px solid #19875433;
+}
+.banner-biofrecuencias {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.banner-biofrecuencias .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* oscurece la imagen para que el texto sea legible */
+}
+
+.banner-biofrecuencias .banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.banner-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Hover cards */
+.video-card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}

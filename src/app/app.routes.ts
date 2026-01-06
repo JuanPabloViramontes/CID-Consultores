@@ -8,6 +8,7 @@ import { MapComponent } from './Modules/POSTALES_SONORAS/map/map.component';
 import { ServicesComponent } from './Modules/SERVICIOS/services/services.component';
 import { ContactoComponent } from './Modules/CONTACTO/contacto.component';
 import { ProyectosComponent } from './Modules/PROYECTOS/proyectos.component';
+import { BiofrecuenciasComponent } from './Modules/BIOFRECUENCIAS/biofrecuencias.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,10 @@ export const routes: Routes = [
     {
     path: 'postales-sonoras',
     component: MapComponent
+  },
+   {
+    path: 'biofrecuencias',
+    component: BiofrecuenciasComponent
   },
   {
     path: 'contacto',

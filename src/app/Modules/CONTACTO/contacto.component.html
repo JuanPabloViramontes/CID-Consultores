@@ -8,6 +8,7 @@
         </div>
 
         <div class="row">
+          <!-- Columna izquierda -->
           <div class="col-lg-6 mb-4">
             <div class="info-card p-4 h-100">
               <h3 class="fw-bold mb-4">Información de contacto</h3>
@@ -24,7 +25,11 @@
                 <i class="bi bi-envelope-fill text-warning me-3"></i>
                 <div>
                   <h5>Email</h5>
-                  <p class="text-muted">jviramontesmarques&#64;gmail.com</p>
+                  <p class="text-muted">
+                    <a href="mailto:contacto&#64;cidconsultores.org" class="text-decoration-none text-muted">
+                      contacto&#64;cidconsultores.org
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -39,14 +44,24 @@
               <div class="social-links mt-4">
                 <h5 class="fw-bold mb-3">Síguenos</h5>
                 <div class="d-flex gap-3">
-                  <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-                  <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
-                  <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=100061056482253"
+                     target="_blank" class="social-icon text-primary fs-4">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@cidconsultores"
+                     target="_blank" class="social-icon text-danger fs-4">
+                    <i class="bi bi-youtube"></i>
+                  </a>
+                  <a href="https://cidconsultores.blogspot.com/"
+                     target="_blank" class="social-icon text-success fs-4">
+                    <i class="bi bi-journal-text"></i>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Columna derecha (formulario) -->
           <div class="col-lg-6">
             <div class="contact-form-card p-4">
               <h3 class="fw-bold mb-4">Envíanos un mensaje</h3>
@@ -66,79 +81,52 @@
               <form (ngSubmit)="enviarFormulario()" #contactForm="ngForm">
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre completo *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="nombre"
-                    [(ngModel)]="formData.nombre"
-                    name="nombre"
-                    required
-                    placeholder="Tu nombre">
+                  <input type="text" class="form-control" id="nombre"
+                         [(ngModel)]="formData.nombre" name="nombre"
+                         required placeholder="Tu nombre">
                 </div>
 
                 <div class="mb-3">
                   <label for="email" class="form-label">Email *</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    [(ngModel)]="formData.email"
-                    name="email"
-                    required
-                    placeholder="tu@email.com">
+                  <input type="email" class="form-control" id="email"
+                         [(ngModel)]="formData.email" name="email"
+                         required placeholder="tu&#64;email.com">
                 </div>
 
                 <div class="mb-3">
                   <label for="telefono" class="form-label">Teléfono</label>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="telefono"
-                    [(ngModel)]="formData.telefono"
-                    name="telefono"
-                    placeholder="(33) 1234-5678">
+                  <input type="tel" class="form-control" id="telefono"
+                         [(ngModel)]="formData.telefono" name="telefono"
+                         placeholder="(33) 1234-5678">
                 </div>
 
                 <div class="mb-3">
                   <label for="asunto" class="form-label">Asunto *</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="asunto"
-                    [(ngModel)]="formData.asunto"
-                    name="asunto"
-                    required
-                    placeholder="¿En qué podemos ayudarte?">
+                  <input type="text" class="form-control" id="asunto"
+                         [(ngModel)]="formData.asunto" name="asunto"
+                         required placeholder="¿En qué podemos ayudarte?">
                 </div>
 
                 <div class="mb-4">
                   <label for="mensaje" class="form-label">Mensaje *</label>
-                  <textarea
-                    class="form-control"
-                    id="mensaje"
-                    rows="5"
-                    [(ngModel)]="formData.mensaje"
-                    name="mensaje"
-                    required
-                    placeholder="Cuéntanos más sobre tu proyecto..."></textarea>
+                  <textarea class="form-control" id="mensaje" rows="5"
+                            [(ngModel)]="formData.mensaje" name="mensaje"
+                            required placeholder="Cuéntanos más sobre tu proyecto..."></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  class="btn btn-primary w-100 py-3"
-                  [disabled]="enviando || !contactForm.form.valid">
+                <button type="submit" class="btn btn-primary w-100 py-3"
+                        [disabled]="enviando || !contactForm.form.valid">
                   <span *ngIf="!enviando">
-                    <i class="bi bi-send-fill me-2"></i>
-                    Enviar mensaje
+                    <i class="bi bi-send-fill me-2"></i>Enviar mensaje
                   </span>
                   <span *ngIf="enviando">
-                    <span class="spinner-border spinner-border-sm me-2"></span>
-                    Enviando...
+                    <span class="spinner-border spinner-border-sm me-2"></span>Enviando...
                   </span>
                 </button>
               </form>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -1,69 +1,40 @@
 <section class="colaboraciones-section py-5">
   <div class="container">
+    <!-- ENCABEZADO -->
     <div class="text-center mb-5">
       <h1 class="display-4 fw-bold text-dark mb-3">Nuestras Colaboraciones</h1>
-      <p class="lead text-muted">Conoce nuestras publicaciones, vínculos institucionales y recursos educativos</p>
+      <p class="lead text-muted">
+        Conoce nuestras publicaciones, vínculos institucionales y recursos educativos
+      </p>
     </div>
 
+    <!-- TABS -->
     <div class="tabs-container mb-5">
       <div class="row g-3">
-        <div class="col-6 col-md-4 col-lg-2">
+        <div
+          class="col-6 col-md-4 col-lg-2"
+          *ngFor="let tab of [
+            { id: 'vinculos', icon: 'bi-link-45deg', label: 'Vínculos' },
+            { id: 'libros', icon: 'bi-book-fill', label: 'Libros' },
+            { id: 'articulos', icon: 'bi-file-text-fill', label: 'Artículos' },
+            { id: 'documentos', icon: 'bi-folder-fill', label: 'Documentos' },
+            { id: 'guias', icon: 'bi-journal-text', label: 'Guías' },
+            { id: 'biblioteca', icon: 'bi-building', label: 'Biblioteca' }
+          ]"
+        >
           <button
             class="tab-btn w-100"
-            [class.active]="seccionActiva === 'vinculos'"
-            (click)="seleccionarSeccion('vinculos')">
-            <i class="bi bi-link-45deg"></i>
-            <span>Vínculos</span>
-          </button>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <button
-            class="tab-btn w-100"
-            [class.active]="seccionActiva === 'libros'"
-            (click)="seleccionarSeccion('libros')">
-            <i class="bi bi-book-fill"></i>
-            <span>Libros</span>
-          </button>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <button
-            class="tab-btn w-100"
-            [class.active]="seccionActiva === 'articulos'"
-            (click)="seleccionarSeccion('articulos')">
-            <i class="bi bi-file-text-fill"></i>
-            <span>Artículos</span>
-          </button>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <button
-            class="tab-btn w-100"
-            [class.active]="seccionActiva === 'documentos'"
-            (click)="seleccionarSeccion('documentos')">
-            <i class="bi bi-folder-fill"></i>
-            <span>Documentos</span>
-          </button>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <button
-            class="tab-btn w-100"
-            [class.active]="seccionActiva === 'guias'"
-            (click)="seleccionarSeccion('guias')">
-            <i class="bi bi-journal-text"></i>
-            <span>Guías</span>
-          </button>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <button
-            class="tab-btn w-100"
-            [class.active]="seccionActiva === 'biblioteca'"
-            (click)="seleccionarSeccion('biblioteca')">
-            <i class="bi bi-building"></i>
-            <span>Biblioteca</span>
+            [class.active]="seccionActiva === tab.id"
+            (click)="seleccionarSeccion(tab.id)"
+          >
+            <i class="bi" [ngClass]="tab.icon"></i>
+            <span>{{ tab.label }}</span>
           </button>
         </div>
       </div>
     </div>
 
+    <!-- VÍNCULOS INSTITUCIONALES -->
     <div class="content-section" *ngIf="seccionActiva === 'vinculos'">
       <h2 class="section-title mb-4">
         <i class="bi bi-link-45deg me-2"></i>
@@ -71,7 +42,11 @@
       </h2>
       <div class="row g-4">
         <div class="col-md-6 col-lg-4" *ngFor="let vinculo of vinculos">
-          <div class="vinculo-card">
+          <div
+            class="vinculo-card"
+            (click)="abrirVinculo(vinculo)"
+            style="cursor: pointer;"
+          >
             <div class="vinculo-icon">
               <i [class]="'bi ' + vinculo.icono"></i>
             </div>
@@ -82,6 +57,7 @@
       </div>
     </div>
 
+    <!-- LIBROS -->
     <div class="content-section" *ngIf="seccionActiva === 'libros'">
       <h2 class="section-title mb-4">
         <i class="bi bi-book-fill me-2"></i>
@@ -95,15 +71,22 @@
               <h4>{{ libro.titulo }}</h4>
             </div>
             <div class="libro-body">
-              <p class="autor"><i class="bi bi-person-fill me-2"></i>{{ libro.autor }}</p>
-              <p class="resumen">{{ libro.resumen.substring(0, 150) }}...</p>
-              <button class="btn-leer-mas">Leer más <i class="bi bi-arrow-right ms-2"></i></button>
+              <p class="autor">
+                <i class="bi bi-person-fill me-2"></i>{{ libro.autor }}
+              </p>
+              <p class="resumen">
+                {{ libro.resumen.substring(0, 150) }}...
+              </p>
+              <button class="btn-leer-mas">
+                Leer más <i class="bi bi-arrow-right ms-2"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- ARTÍCULOS -->
     <div class="content-section" *ngIf="seccionActiva === 'articulos'">
       <h2 class="section-title mb-4">
         <i class="bi bi-file-text-fill me-2"></i>
@@ -114,15 +97,20 @@
           <div class="articulo-number">{{ i + 1 }}</div>
           <div class="articulo-content">
             <h5>{{ articulo.titulo }}</h5>
-            <p class="autores"><i class="bi bi-people-fill me-2"></i>{{ articulo.autores }}</p>
+            <p class="autores">
+              <i class="bi bi-people-fill me-2"></i>{{ articulo.autores }}
+            </p>
           </div>
           <div class="articulo-action">
-            <button class="btn-icon"><i class="bi bi-download"></i></button>
+            <button class="btn-icon" (click)="abrirVinculo(articulo)">
+              <i class="bi bi-download"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- DOCUMENTOS -->
     <div class="content-section" *ngIf="seccionActiva === 'documentos'">
       <h2 class="section-title mb-4">
         <i class="bi bi-folder-fill me-2"></i>
@@ -130,58 +118,80 @@
       </h2>
       <div class="row g-3">
         <div class="col-md-6" *ngFor="let documento of documentos">
-          <div class="documento-card">
+          <div
+            class="documento-card"
+            (click)="abrirVinculo(documento)"
+            style="cursor: pointer;"
+          >
             <i class="bi bi-file-earmark-text-fill"></i>
             <div class="documento-info">
               <h6>{{ documento.titulo }}</h6>
               <p *ngIf="documento.autor">{{ documento.autor }}</p>
             </div>
-            <button class="btn-download"><i class="bi bi-download"></i></button>
+            <button class="btn-download" (click)="abrirVinculo(documento)">
+              <i class="bi bi-download"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- GUÍAS -->
     <div class="content-section" *ngIf="seccionActiva === 'guias'">
       <h2 class="section-title mb-4">
         <i class="bi bi-journal-text me-2"></i>
         Guías Técnicas - SIG
       </h2>
       <div class="guias-grid">
-        <div class="guia-card" *ngFor="let guia of guias">
+        <div
+          class="guia-card"
+          *ngFor="let guia of guias"
+          (click)="abrirVinculo(guia)"
+          style="cursor: pointer;"
+        >
           <div class="guia-icon">
             <i class="bi bi-file-earmark-code"></i>
           </div>
           <h5>{{ guia.titulo }}</h5>
           <p>{{ guia.descripcion }}</p>
-          <button class="btn-descargar">
+          <button class="btn-descargar" (click)="abrirVinculo(guia)">
             <i class="bi bi-download me-2"></i>
             Descargar guía
           </button>
         </div>
       </div>
     </div>
-
+    <!-- BIBLIOTECA -->
     <div class="content-section" *ngIf="seccionActiva === 'biblioteca'">
       <h2 class="section-title mb-4">
-        <i class="bi bi-building me-2"></i>
-        Acervo Bibliográfico CID
+        <i class="bi bi-building me-2"></i> Acervo Bibliográfico CID
       </h2>
       <div class="biblioteca-info">
         <div class="info-box">
           <i class="bi bi-info-circle-fill"></i>
           <div>
             <h4>Biblioteca Abierta al Público</h4>
-            <p>Consulta nuestro acervo bibliográfico especializado en desarrollo ambiental, gestión territorial y proyectos sustentables.</p>
+            <p>
+              Consulta nuestro acervo bibliográfico especializado en desarrollo
+              ambiental, gestión territorial y proyectos sustentables.
+            </p>
             <ul class="caracteristicas">
-              <li><i class="bi bi-check-circle-fill"></i> Consulta gratuita</li>
-              <li><i class="bi bi-check-circle-fill"></i> Material especializado</li>
-              <li><i class="bi bi-check-circle-fill"></i> Préstamo a domicilio disponible</li>
-              <li><i class="bi bi-check-circle-fill"></i> Asesoría bibliográfica</li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Consulta gratuita
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Material especializado
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i> Asesoría bibliográfica
+              </li>
             </ul>
-            <a href="/contacto" class="btn btn-primary mt-3">
-              <i class="bi bi-calendar-check me-2"></i>
-              Agendar visita
+            <a
+              class="btn btn-primary mt-3"
+              (click)="abrirVinculo({ link: 'https://drive.google.com/file/d/0B9gXbSh3PWBrZDhlMGZmOTctNWRmMi00MmUzLWFlNGItNWQ5M2U2NDU4NjFm/view?hl=es&resourcekey=0-E-lO6EUXvjU1S1imC7E2Ng' })"
+            >
+              <i class="bi bi-box-arrow-up-right me-2"></i>
+              Ver catálogo en línea
             </a>
           </div>
         </div>
@@ -190,6 +200,7 @@
   </div>
 </section>
 
+<!-- MODAL DE LIBRO -->
 <div class="modal-overlay" *ngIf="libroSeleccionado" (click)="cerrarLibro()">
   <div class="modal-libro" (click)="$event.stopPropagation()">
     <button class="btn-close-modal" (click)="cerrarLibro()">
@@ -206,7 +217,11 @@
     </div>
     <div class="modal-libro-footer">
       <button class="btn btn-secondary" (click)="cerrarLibro()">Cerrar</button>
-      <button class="btn btn-primary" *ngIf="libroSeleccionado.link">
+      <button
+        class="btn btn-primary"
+        *ngIf="libroSeleccionado.link"
+        (click)="abrirVinculo(libroSeleccionado)"
+      >
         <i class="bi bi-file-pdf me-2"></i>
         Ver PDF
       </button>
