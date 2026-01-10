@@ -2,9 +2,9 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-map',
-  standalone: false,
+  standalone: true,
   templateUrl: './map.component.html',
-  styleUrl: './map.component.css'
+  styleUrls: ['./map.component.css']
 })
 export class MapComponent {
  @ViewChild('mapFrame') mapFrame!: ElementRef;

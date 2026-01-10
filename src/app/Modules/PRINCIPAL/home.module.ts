@@ -15,11 +15,11 @@ import { QuienesSomosComponent } from '../QUIENES-SOMOS/quienes-somos/quienes-so
     MaestriaComponent,
     DiplomadoComponent,
     QuienesSomosComponent,
-    MapComponent
   ],
   imports: [
     CommonModule,
-    RouterModule 
+    RouterModule,
+    MapComponent
   ],
 })
 export class HomeModule { }
