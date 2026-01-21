@@ -6,3 +6,25 @@ nav.navbar {
 .navbar .nav-link {
     color: #ffffff !important;  /* DarkBlue */
 }
+/* Hover visible */
+.logout-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-item:hover {
+  background-color: #f8d7da;      /* rojo suave */
+  color: #842029;
+  font-weight: 500;
+}
+
+/* Cuando navegas con teclado */
+.logout-item:focus {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+/* Pequeño feedback al hacer click */
+.logout-item:active {
+  transform: scale(0.97);
+}

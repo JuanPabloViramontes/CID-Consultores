@@ -1,33 +1,51 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-map',
   standalone: true,
+  imports: [
+    CommonModule,
+    HttpClientModule
+  ],
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
- @ViewChild('mapFrame') mapFrame!: ElementRef;
-  
-  particles: any[] = [];
-  isPlayingAmbient = false;
+
+  @ViewChild('mapFrame') mapFrame!: ElementRef<HTMLIFrameElement>;
+
+  isLoggedIn = false;
   isLoading = true;
   zoomLevel = 1;
-  
-  // Sonido ambiente (simulado)
-  ambientSound: any;
+  isPlayingAmbient = false;
+
+  particles: any[] = [];
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.checkLoginStatus();
     this.generateParticles();
-    
+
     // Simular carga del mapa
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
   }
 
+  checkLoginStatus() {
+    const user = localStorage.getItem('user');
+    this.isLoggedIn = !!user;
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
   generateParticles() {
-    // Generar partículas para el fondo
     for (let i = 0; i < 30; i++) {
       this.particles.push({
         x: Math.random() * 100,
@@ -40,19 +58,12 @@ export class MapComponent {
 
   toggleAmbientSound() {
     this.isPlayingAmbient = !this.isPlayingAmbient;
-    
-    // En una implementación real, aquí controlarías la reproducción de audio
+
     if (this.isPlayingAmbient) {
       console.log('Reproduciendo sonido ambiente del agua');
-      // this.ambientSound.play();
     } else {
       console.log('Pausando sonido ambiente');
-      // this.ambientSound.pause();
     }
-  }
-
-  showInstructions() {
-    alert('Para navegar por el mapa:\n\n1. Haz clic en los puntos marcados para escuchar los sonidos\n2. Usa los botones + y - para acercar/alejar\n3. Activa el sonido ambiente para una experiencia completa');
   }
 
   zoomIn() {
@@ -66,13 +77,23 @@ export class MapComponent {
   }
 
   applyZoom() {
+    if (!this.mapFrame) return;
+
     const iframe = this.mapFrame.nativeElement;
     iframe.style.transform = `scale(${this.zoomLevel})`;
     iframe.style.transformOrigin = 'center center';
   }
 
-  // Efecto de parallax al desplazarse
-  @HostListener('window:scroll', ['$event'])
+  showInstructions() {
+    alert(
+      'Para navegar por el mapa:\n\n' +
+      '1. Haz clic en los puntos para escuchar los sonidos\n' +
+      '2. Usa los botones + y - para acercar o alejar\n' +
+      '3. Activa el sonido ambiente para una experiencia completa'
+    );
+  }
+
+  @HostListener('window:scroll')
   onWindowScroll() {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector('.wave1') as HTMLElement;

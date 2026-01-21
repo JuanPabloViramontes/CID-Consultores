@@ -10,18 +10,43 @@
 <div class="title-container">
   <div class="container">
     <p class="description-text">
-      Postales sonoras del agua es un proyecto desarrollado para preservar y compartir
-      los sonidos únicos de los cuerpos de agua de nuestra región.
+      Postales Sonoras del Agua es un proyecto que busca preservar y compartir
+      los sonidos únicos de los cuerpos de agua de nuestra región,
+      reconectándonos con la memoria, el territorio y la escucha.
     </p>
   </div>
 </div>
 
-<section class="postales-section">
+<!-- 🔒 NO LOGEADO -->
+<div *ngIf="!isLoggedIn" class="container my-5">
+  <div class="card shadow text-center">
+    <div class="card-body p-5">
+
+      <h3 class="mb-3">Acceso al mapa sonoro</h3>
+
+      <p class="text-muted mb-4">
+        Para explorar el mapa interactivo de Postales Sonoras del Agua,
+        es necesario iniciar sesión en la plataforma.
+      </p>
+
+      <button
+        class="btn btn-primary px-5"
+        (click)="goToLogin()">
+        Iniciar sesión
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🔓 LOGEADO -->
+<section *ngIf="isLoggedIn" class="postales-section">
   <div class="container postales-content">
 
     <div class="map-container">
       <div class="map-frame">
         <iframe
+          #mapFrame
           src="assets/PostalesSonorasdelAgua/index.html"
           width="100%"
           height="500"
@@ -40,8 +65,8 @@
             </div>
             <h3 class="feature-title">Sonidos del Agua</h3>
             <p class="feature-description">
-              El registro audible del agua nos conecta con la memoria sobre los orígenes del planeta
-              y de nuestra vida placentaria.
+              El registro audible del agua nos conecta con la memoria
+              de los orígenes del planeta y de nuestra propia vida.
             </p>
           </div>
         </div>
@@ -53,8 +78,8 @@
             </div>
             <h3 class="feature-title">Mapa Interactivo</h3>
             <p class="feature-description">
-              Los Sistemas de Información Geográfica permiten seguir trayectos y comprender
-              los paisajes del agua.
+              Los Sistemas de Información Geográfica permiten seguir trayectos
+              y comprender los paisajes del agua.
             </p>
           </div>
         </div>
@@ -66,8 +91,8 @@
             </div>
             <h3 class="feature-title">Historias y Memorias</h3>
             <p class="feature-description">
-              Las postales sonoras resignifican nuestra relación con el agua y los procesos
-              históricos que la atraviesan.
+              Las postales sonoras resignifican nuestra relación con el agua
+              y los procesos históricos que la atraviesan.
             </p>
           </div>
         </div>
@@ -80,21 +105,31 @@
 
         <div class="col-md-6">
           <div class="info-card">
-            <h4>Sobre el Proyecto</h4>
+            <h4>Sobre el proyecto</h4>
             <p>
-              Las postales sonoras buscan redirigir los sentidos humanos a través de la escucha.
+              Escuchar el agua es una forma de habitar el territorio
+              desde la sensibilidad y la memoria colectiva.
             </p>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="info-card">
-            <h4>Cómo Participar</h4>
-            <p>
-              ¿Tienes grabaciones de agua? Contáctanos para integrarlas al mapa interactivo.
-            </p>
-          </div>
-        </div>
+       <div class="col-md-6">
+  <div class="info-card">
+    <h4>Cómo participar</h4>
+    <p>
+      ¿Tienes grabaciones de ríos, manantiales o lluvias?
+      Contáctanos para integrarlas al mapa sonoro.
+    </p>
+
+    <a
+      href="mailto:contacto@cidconsultores.org?subject=Participación%20Mapa%20Sonoro"
+      class="btn btn-outline-success mt-3"
+    >
+      <i class="bi bi-envelope me-2"></i>
+      Escríbenos
+    </a>
+  </div>
+</div>
 
       </div>
     </div>

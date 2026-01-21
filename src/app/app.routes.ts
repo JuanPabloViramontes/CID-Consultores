@@ -9,6 +9,7 @@ import { ServicesComponent } from './Modules/SERVICIOS/services/services.compone
 import { ContactoComponent } from './Modules/CONTACTO/contacto.component';
 import { ProyectosComponent } from './Modules/PROYECTOS/proyectos.component';
 import { BiofrecuenciasComponent } from './Modules/BIOFRECUENCIAS/biofrecuencias.component';
+import { LoginComponent } from './Modules/login/login.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+    {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'servicios',

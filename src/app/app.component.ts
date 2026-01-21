@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./Header/header/header.component";
 import { HomeModule } from './Modules/PRINCIPAL/home.module';
 import { FooterComponent } from './Footer/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, HomeModule],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, HomeModule, HttpClientModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
