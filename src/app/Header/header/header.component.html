@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-custom fixed-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+    <a class="navbar-brand d-flex align-items-center" (click)="navigateWithScrollTop('/home')" style="cursor: pointer;">
       <img src="../../../assets/images/LogoCID.png" alt="Logo CID" height="60" class="me-2" />
     </a>
 
@@ -18,39 +18,42 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
       <ul class="navbar-nav mb-2 mb-lg-0 align-items-lg-center">
-        <li class="nav-item"><a class="nav-link" routerLink="/home">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/quienes-somos">Quiénes somos</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/proyectos">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/servicios">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/colaboraciones">Colaboraciones</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+        <!-- Usa (click) en lugar de routerLink para estos -->
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/home')" style="cursor: pointer;">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/quienes-somos')" style="cursor: pointer;">Quiénes somos</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/proyectos')" style="cursor: pointer;">Proyectos</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/servicios')" style="cursor: pointer;">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/colaboraciones')" style="cursor: pointer;">Colaboraciones</a></li>
+        <li class="nav-item"><a class="nav-link" (click)="navigateWithScrollTop('/contacto')" style="cursor: pointer;">Contacto</a></li>
+        <!-- Para los que quieres mantener routerLink normal -->
         <li class="nav-item"><a class="nav-link highlight-link" routerLink="/postales-sonoras">Postales sonoras</a></li>
         <li class="nav-item"><a class="nav-link highlight-link" routerLink="/biofrecuencias">Biofrecuencias</a></li>
-<!-- NO LOGUEADO -->
-<li class="nav-item" *ngIf="!user">
-  <a class="nav-link highlight-link" routerLink="/login">Log in</a>
-</li>
+        
+        <!-- NO LOGUEADO -->
+        <li class="nav-item" *ngIf="!user">
+          <a class="nav-link highlight-link" (click)="navigateWithScrollTop('/login')" style="cursor: pointer;">Log in</a>
+        </li>
 
-<!-- LOGUEADO -->
-<li class="nav-item dropdown" *ngIf="user">
-  <a
-    class="nav-link dropdown-toggle highlight-link"
-    href="#"
-    role="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Hola {{ user.nombre }}
-  </a>
+        <!-- LOGUEADO -->
+        <li class="nav-item dropdown" *ngIf="user">
+          <a
+            class="nav-link dropdown-toggle highlight-link"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Hola {{ user.nombre }}
+          </a>
 
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li>
-      <a class="dropdown-item logout-item" (click)="logout()">
-        Cerrar sesión
-      </a>
-    </li>
-  </ul>
-</li>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a class="dropdown-item logout-item" (click)="logout()">
+                Cerrar sesión
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

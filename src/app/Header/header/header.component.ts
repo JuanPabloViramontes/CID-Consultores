@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Modules/SERVICIOS/services/auth.service';
 import { CommonModule } from '@angular/common';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,18 @@ export class HeaderComponent {
     private router: Router
   ) {}
 
-  // 👇 getter REACTIVO
+ ngOnInit(): void {
+    // 🔥 Scroll automático en CUALQUIER navegación
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+  }
+
   get user() {
     return this.authService.getUser();
   }
@@ -24,5 +36,14 @@ export class HeaderComponent {
   logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  navigateWithScrollTop(url: string) {
+    this.router.navigate([url]).then(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 }

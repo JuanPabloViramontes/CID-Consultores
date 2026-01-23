@@ -11,3 +11,23 @@
   width: 100%;
   max-width: 420px;
 }
+
+.login-wrapper.registro-mode {
+  padding-top: 60px; /* Menos margen para registro */
+}
+
+/* Ajusta la card del registro */
+.login-wrapper.registro-mode .login-card {
+  margin-top: 20px;
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .login-wrapper {
+    padding-top: 30px;
+  }
+  
+  .login-wrapper.registro-mode {
+    padding-top: 15px;
+  }
+    }
